@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Non-Verbal Communication App</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"
+              rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-blue-50 min-h-screen font-sans">
+        <header class="bg-white shadow-md py-4 px-6 mb-6">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-blue-800">🗣️ SpeakEZ</h1>
+                <span class="text-sm text-gray-500">Empowering Non-Verbal Communication</span>
+            </div>
+        </header>
+        <main class="max-w-4xl mx-auto px-4">
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Choose a Category</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <button onclick="speak('I need help')"
+                            class="bg-white p-6 rounded-xl shadow hover:bg-blue-100 transition text-center">
+                        <img src="https://img.icons8.com/ios-filled/50/help.png"
+                             class="mx-auto mb-2"
+                             alt="Help Icon" />
+                        <span class="block font-medium">Help</span>
+                    </button>
+                    <button onclick="speak('I am hungry')"
+                            class="bg-white p-6 rounded-xl shadow hover:bg-blue-100 transition text-center">
+                        <img src="https://img.icons8.com/ios-filled/50/hamburger.png"
+                             class="mx-auto mb-2"
+                             alt="Food Icon" />
+                        <span class="block font-medium">Food</span>
+                    </button>
+                    <button onclick="speak('I want to go outside')"
+                            class="bg-white p-6 rounded-xl shadow hover:bg-blue-100 transition text-center">
+                        <img src="https://img.icons8.com/ios-filled/50/walking.png"
+                             class="mx-auto mb-2"
+                             alt="Go Out Icon" />
+                        <span class="block font-medium">Outside</span>
+                    </button>
+                    <button onclick="speak('I need the bathroom')"
+                            class="bg-white p-6 rounded-xl shadow hover:bg-blue-100 transition text-center">
+                        <img src="https://img.icons8.com/ios-filled/50/toilet.png"
+                             class="mx-auto mb-2"
+                             alt="Bathroom Icon" />
+                        <span class="block font-medium">Bathroom</span>
+                    </button>
+                    <button onclick="speak('I am thirsty')"
+                            class="bg-white p-6 rounded-xl shadow hover:bg-blue-100 transition text-center">
+                        <img src="https://img.icons8.com/ios-filled/50/water.png"
+                             class="mx-auto mb-2"
+                             alt="Drink Icon" />
+                        <span class="block font-medium">Drink</span>
+                    </button>
+                    <button onclick="speak('I want to rest')"
+                            class="bg-white p-6 rounded-xl shadow hover:bg-blue-100 transition text-center">
+                        <img src="https://img.icons8.com/ios-filled/50/bed.png"
+                             class="mx-auto mb-2"
+                             alt="Rest Icon" />
+                        <span class="block font-medium">Rest</span>
+                    </button>
+                </div>
+            </section>
+            <section class="mt-10">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2">Custom Message</h2>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input id="customText"
+                           type="text"
+                           placeholder="Type something..."
+                           class="flex-1 px-4 py-2 rounded-lg border border-gray-300" />
+                    <button onclick="customSpeak()"
+                            class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                        Speak
+                    </button>
+                </div>
+            </section>
+        </main>
+        <footer class="text-center text-sm text-gray-500 mt-16 py-4">
+            &copy; 2025 SpeakEZ - Empowering every voice.
+        </footer>
+        <script>
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+
+    function customSpeak() {
+      const customText = document.getElementById('customText').value;
+      if (customText.trim()) speak(customText);
+    }
+        </script>
+    </body>
+</html>
